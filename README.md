@@ -37,4 +37,4 @@ which just sets the Z height of the dinosaur above the height of any incoming ob
 
 While I have no experience with Javascript, I found it sufficiently easy to read the code available here: https://github.com/wayou/t-rex-runner/blob/gh-pages/js/game.js and by some googling (and stack-exchange-ing)I found a way to grab pixels within Javascript directly from the HTML Canvas. This is of course faster, because it all runs within the JavaScript engine in the browser. It also works better because i now dont have to compare colors against a pixel that is always constant in the background, to account for the day-night changes, because it gives me access to the transparency of the pixels, which is always 255 for incoming obstacles.
 
-# enjoy
+# Enjoy
