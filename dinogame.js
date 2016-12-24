@@ -1,11 +1,11 @@
-      var event = new Event('keydown');
-      var inc=-30;
-      event.keyCode = 32;//keys(Runner.keycodes.JUMP)[0];
-      event.which = event.keyCode;
-      event.altKey = false;
-      event.ctrlKey = true;
-      event.shiftKey = false;
-      event.metaKey = false;
+var event = new Event('keydown');
+var inc=-30;
+event.keyCode = 32;//keys(Runner.keycodes.JUMP)[0];
+event.which = event.keyCode;
+event.altKey = false;
+event.ctrlKey = true;
+event.shiftKey = false;
+event.metaKey = false;
 
 var ctx=document.getElementsByClassName("runner-canvas")[0].getContext('2d');
 
