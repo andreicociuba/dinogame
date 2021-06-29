@@ -1,22 +1,31 @@
-var event = new Event('keydown');
-var inc=-30;
-event.keyCode = 32;//keys(Runner.keycodes.JUMP)[0];
-event.which = event.keyCode;
-event.altKey = false;
-event.ctrlKey = true;
-event.shiftKey = false;
-event.metaKey = false;
+function is_jump(tRex_x_pos, obstacle_x_pos, jump_dist){
+if (Math.abs(obstacle_x_pos-tRex_x_pos)<jump_dist){return true}
+}
 
-var ctx=document.getElementsByClassName("runner-canvas")[0].getContext('2d');
+function jump(){
+var event = new Event('keydown');
+    event.keyCode = 32;//keys(Runner.keycodes.JUMP)[0];
+    event.which = event.keyCode;
+    event.altKey = false;
+    event.ctrlKey = true;
+    event.shiftKey = false;
+    event.metaKey = false;
+    document.dispatchEvent(event);
+}
 
 var sec = setInterval(function(){
-if (Math.max(...ctx.getImageData(120,125,50+inc,1).data)==255)  document.dispatchEvent(event);
-if (Math.max(...ctx.getImageData(120,95,30+inc,1).data)==255) document.dispatchEvent(event);
+
 if (Runner.instance_.crashed) {inc=-30; Runner.instance_.restart()};
 if (Runner.instance_.paused) Runner.instance_.play();
+
+if (typeof (Runner.instance_.horizon.obstacles[0]) !== "undefined"){
+    tRex_xPos = Runner.instance_.tRex.xPos
+    obstacle_xPos = Runner.instance_.horizon.obstacles[0].xPos
+    //console.log(obstacle_xPos, tRex_xPos)
+    if (is_jump(obstacle_xPos, tRex_xPos, 90)){
+        console.log('Jump')
+        jump()
+    }
+}
+
 },2);
-    
-var sec = setInterval(function(){
-if (inc<100)inc=(inc+0.1)
-},300);
-    
